@@ -1,0 +1,136 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Emilly Wasson
+ */
+
+class App {
+    TodoList[] lists
+
+    main {
+        start()
+        makeGUI()
+    }
+
+    start {
+        SceneBuilder.load()
+    }
+
+    loadAll(files[]) {
+        for every file
+            list = new TodoList
+            list.load(file)
+            lists.add(list)
+    }
+
+    saveAll {
+        for every list:
+            list.save()
+    }
+
+    remove {
+        delete lists[i]
+    }
+}
+
+class TodoList {
+    Item[] list
+
+    TodoList(title, description, date) {
+        title = title
+        description = description
+        date = date
+        list = new ArrayList
+    }
+
+    add(content) {
+        Item item = new Item(content)
+        list.add(item)
+    }
+
+    remove {
+        delete items[i]
+    }
+
+    edit(title, description, date) {
+        title = title
+        description = description
+        date = date
+    }
+
+    display(mode) {
+        switch mode {
+            case 0:
+                for every item:
+                    if item is hidden:
+                        unhide item
+                break;
+            case 1:
+                for every item:
+                    if item.complete:
+                        hide item
+                    else
+                        unhide item
+                break;
+            case 2:
+                for every item:
+                    if item.complete:
+                        unhide item
+                    else
+                        hide item
+                break;
+        }
+    }
+
+    save {
+        open file "title.txt"
+        write description
+        write date
+        for every item:
+            if item.complete
+                write 'x'
+            else
+                write '-'
+            write item
+    }
+
+    load(title) {
+        open file "title.txt"
+        title = title
+        description = file.readline
+        date = file.readline
+        for line in file
+            if line[0] = 'x'
+                item = new Item
+                item.complete = true
+                items.add(item)
+            else
+                items.add(item)
+    }
+}
+
+class Item {
+    bool complete
+    String content
+
+    Item (content) {
+        content = content
+        complete = false
+    }
+
+    check {
+        complete = true
+    }
+}
+
+class GUI {
+    widget widgets
+
+    makeGUI {
+        for widget in widgets
+            display widget
+    }
+
+    display(widget) {
+        show widget
+    }
+}

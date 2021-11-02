@@ -1,0 +1,66 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Emilly Wasson
+ */
+
+testLoadAll {
+    loadAll throws exception if failed
+}
+
+testSaveAll {
+    saveAll throws exception if failed
+}
+
+testAddRemoveList {
+    app = new app()
+    list = new list()
+    app.add(list)
+    assert app.list.length = 1
+    app.remove(list)
+    assert app.list.length = 0
+}
+
+testAddRemoveItem {
+    list = new list()
+    list.add(new item)
+    assert list.length = 1
+    list.remove(item)
+    assert list.length = 0
+}
+
+testEdit {
+    title = "title"
+    description = "description"
+    date = "date"
+    TodoList td = new TodoList(title, description, date)
+    assert td.title = title
+    assert td.description = description
+    assert td.date = date
+
+    title = "new title"
+    description = "new description"
+    date = "new date"
+    td.edit(title, description, date)
+    assert td.title = title
+    assert td.description = description
+    assert td.date = date
+}
+
+testDisplay {
+    make item and add to list
+    display(0)
+    assert item is not hidden
+    item.complete = true
+    display(1)
+    assert item is hidden
+    display(2)
+    assert item is not hidden
+}
+
+testSave {
+    save throws exception if failed
+}
+
+testLoad {
+    load throws exception if failed
+}

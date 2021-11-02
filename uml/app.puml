@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class App {
+..member variables..
++TodoList[] lists
+--
+..methods..
++main()
++start()
++loadAll(files[])
++saveAll()
++remove()
+}
+
+class TodoList {
+..member variables..
++Item[] lists
+--
+..methods..
++List(title, description, date)
++add(content)
++remove()
++edit(title, description, date)
++display(mode)
++save()
++load(title)
+}
+
+class Item {
+..member variables..
++bool complete
++String content
+..methods..
++Item(content)
++check()
+}
+
+class GUI {
+..member variables..
++widget widgets
+..methods..
++makeGUI
++display(widget)
+}
+App->TodoList
+TodoList->Item
+Item->GUI
+@enduml
