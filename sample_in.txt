@@ -1,0 +1,7 @@
+Title: title
+Description: description
+Date: YYYY-MM-DD
++ Item 1
+- Item 2
+- Item 3
+- Item 4

@@ -48,7 +48,7 @@ class TodoList {
     }
 
     remove {
-        delete items[i]
+    delete list[i]
     }
 
     edit(title, description, date) {
